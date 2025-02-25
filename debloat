@@ -1,0 +1,29 @@
+#!/bin/bash
+
+packages =("rhythmbox"\
+           "dragonplayer"\
+           "hypnotix"\
+           "celluloid"\
+           "pix"\
+           "gnome-2048"\
+           "libreoffice-draw"\
+           #""\
+       );
+for pac in "${packages[@]}"
+do
+    if dpkg -s $pac &>/dev/null #se il pacchetto è installato...
+    then
+        #rimuovilo
+        echo "[FOUND] Rimozione del pacchetto $pac ..."
+
+        #ATTENSIONE: nell'istruzione sucessiva quel -y evita che si debba dare conferma da terminale
+        if sudo nala remove $pac -y >/dev/null
+        then echo "[DONE] Pacchetto $pac rimosso con successo."
+        fi
+
+    else #altrimenti stampa solo un msg di warning
+        echo "[WARNING] Pacchetto $pac non trovato."
+    fi
+done
+
+echo "\n Debloat concluso!"
