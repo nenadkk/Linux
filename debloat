@@ -1,13 +1,12 @@
 #!/bin/bash
 
-packages =("rhythmbox"\
+packages=("rhythmbox"\
            "dragonplayer"\
            "hypnotix"\
            "celluloid"\
            "pix"\
            "gnome-2048"\
            "libreoffice-draw"\
-           #""\
        );
 for pac in "${packages[@]}"
 do
@@ -26,4 +25,4 @@ do
     fi
 done
 
-echo "\n Debloat concluso!"
+echo -e "\n__________________________________________\nDebloat concluso!"
